@@ -1,0 +1,20 @@
+{
+    "name": "patinthehat/laravel-support",
+    "description": "Laravel 5 support classes",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patrick Organ",
+            "email": "trick.developer@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4"
+    },
+    "autoload": {
+        "psr-0": {
+            "LaravelSupport\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
