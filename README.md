@@ -4,7 +4,14 @@
 Various support classes for Laravel 5+.
 
 ---
+####Installation
 
+Install with composer:
+
+`composer require patinthehat/laravel-support`
+
+
+---
 #### Classes
 
 #####ExtendedSeeder
