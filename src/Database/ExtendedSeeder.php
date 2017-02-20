@@ -3,6 +3,7 @@ namespace LaravelSupport\Database;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 abstract class ExtendedSeeder extends Seeder
 {
@@ -19,8 +20,15 @@ abstract class ExtendedSeeder extends Seeder
      */
     protected $connection = "";
 
+    /**
+     * Faker instance
+     * @var Faker\Factory
+     */
+    protected $faker;
+
     public function __construct()
     {
+        $this->faker = Faker::create();
         $this->foreignKeyCheckDisabled = false;
         $this->connection = strtolower(env('DB_CONNECTION'));
     }
@@ -128,4 +136,14 @@ abstract class ExtendedSeeder extends Seeder
         if ($this->foreignKeyCheckDisabled)
             $this->enableForeignKeyChecks();
     }
+
+    /**
+     * Get the faker instance created during object construction.
+     * @return \Faker\Factory;
+     */
+    public function getFaker()
+    {
+        return $this->faker;
+    }
+
 }
