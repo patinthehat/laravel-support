@@ -137,7 +137,7 @@ abstract class ExtendedMigration extends Migration
         $signature = $parts[0];
         $actions = $parts[1];
         $parts = explode('=', $signature);
-        $actions = array_pad(explode(','$actions), 2, null);
+        $actions = array_pad(explode(',',$actions), 2, null);
         if ($actions[0]=='null')
             $actions[0] = null;
         if ($actions[1]=='null')
