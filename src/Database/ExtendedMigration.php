@@ -125,6 +125,26 @@ abstract class ExtendedMigration extends Migration
         return false;
     }
 
+    /**
+     * Creates a foreign key from a string formatted like: "table.key_id=table2.id|cascade,cascade"
+     * @param string $str
+     * @return boolean
+     */
+    public function createForeignKeyFromString($str)
+    {
+        // 'table1.key_id=table2.id|cascade,cascade'
+        $parts = array_pad(explode('|', $str), 2, '');
+        $signature = $parts[0];
+        $actions = $parts[1];
+        $parts = explode('=', $signature);
+        $actions = array_pad(explode(','$actions), 2, null);
+        if ($actions[0]=='null')
+            $actions[0] = null;
+        if ($actions[1]=='null')
+            $actions[1] = null;
+
+        return $this->createForeignKey($parts[0], $parts[1], $actions[0], $actions[1]);
+    }
 
     public function up()
     {
